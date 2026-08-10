@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio — Desarrollador Web y Técnico BBDD Júnior</title>
+    <meta
+      name="description"
+      content="Portafolio de David A. Pérez Vera, desarrollador web júnior con nociones en BBDD."
+    />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <!-- Fondo Three.js: canvas fijo detrás de todo el contenido -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="site-header">
+      <nav class="nav">
+        <span class="nav__logo">David A. Pérez Vera</span>
+        <ul class="nav__links">
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#tecnologias">Tecnologías</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <h1 class="hero__title">David A. Peérez (Natsume)</h1>
+        <p class="hero__subtitle">
+          Desarrollador Web Júnior · Técnico Júnior BBDD
+        </p>
+        <p class="hero__description">
+          Construyo interfaces limpias y funcionales, y me interesa cómo se
+          conecta el frontend con datos reales. Aprendiendo cada día algo nuevo.
+        </p>
+        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+      </section>
+
+      <section id="proyectos" class="section">
+        <!-- se rellena desde projects-data.js -->
+      </section>
+
+      <section id="tecnologias" class="section">
+        <!-- falta por crear la estructura -->
+      </section>
+
+      <section id="contacto" class="section">
+        <!-- falta por crear la estructura -->
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        David A. Pérez Vera · Hecho con HTML, CSS, JavaScript y Three.js ·
+        Desplegado en GitHub Pages
+      </p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+    <!-- falta conectar three.js y projects-data.js -->
+  </body>
+</html>
