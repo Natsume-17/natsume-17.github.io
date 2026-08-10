@@ -1,0 +1,33 @@
+/* ============================================
+   BOTONES
+   Componente reutilizable en hero, tarjetas
+   de proyecto y sección de contacto.
+   ============================================ */
+
+.btn {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(
+    --color-bg
+  ); /* texto oscuro sobre fondo ámbar, mejor contraste que blanco */
+  border: none;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-light);
+  transform: translateY(
+    -2px
+  ); /* pequeño levantamiento al hover, sensación «táctil» */
+}

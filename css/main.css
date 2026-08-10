@@ -55,3 +55,65 @@
     --color-accent
   ); /* al pasar el ratón, resalta con el acento ámbar */
 }
+
+/* ============================================
+   HERO
+   Sección de presentación inicial, ocupa el
+   viewport completo sobre el fondo Three.js.
+   ============================================ */
+
+.hero {
+  min-height: 100vh; /* ocupa toda la pantalla visible al cargar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* alineado a la izquierda, no centrado, para que se vea más editorial */
+
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  padding-top: var(--header-height); /* compensa el header fijo por encima */
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(
+    --text-2xl
+  ); /* dispositivo móvil primero: tamaño más pequeño */
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+}
+
+.hero__subtitle {
+  font-family: var(
+    --font-mono
+  ); /* monoespaciada: da el aire «técnico» al subtítulo */
+  font-size: var(--text-base);
+  color: var(
+    --color-accent
+  ); /* destaca en ámbar, es la línea que dice «qué haces» */
+  margin-bottom: var(--space-md);
+}
+
+.hero__description {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  max-width: 600px; /* evita líneas de texto demasiado anchas y difíciles de leer */
+  margin-bottom: var(--space-lg);
+}
+
+.hero__cta {
+  /* clase contenedora opcional si luego añades más de un botón junto al CTA */
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Escritorio: título más grande, ya hay espacio de sobra */
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: var(--text-3xl);
+  }
+}
