@@ -172,3 +172,19 @@
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
+
+/* ============================================
+   CONTACTO
+   ============================================ */
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.contact__intro {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 500px;
+}

@@ -150,3 +150,45 @@
   width: 18px;
   height: 18px;
 }
+
+/* === components.css === */
+
+/* ==============================================================
+   ENLACES DE CONTACTO
+   Enlace individual a red/contacto (correo, GitHub, LinkedIn...),
+   con icono + texto.
+   ============================================================== */
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.contact-link:hover {
+  border-color: var(--color-accent);
+  background-color: rgba(
+    255,
+    140,
+    66,
+    0.05
+  ); /* fondo ámbar muy tenue, mismo criterio que las etiquetas */
+}
+
+.contact-link__icon {
+  width: 20px;
+  height: 20px;
+}
