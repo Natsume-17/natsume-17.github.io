@@ -146,3 +146,19 @@
     --color-accent
   ); /* para resaltar una palabra clave del título, ej: «Proyectos» en ámbar */
 }
+
+/* ============================================
+   REJILLA DE PROYECTOS
+   ============================================ */
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* dispositivo móvil: una columna */
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr); /* escritorio: 2 columnas */
+  }
+}

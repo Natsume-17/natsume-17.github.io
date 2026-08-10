@@ -31,3 +31,88 @@
     -2px
   ); /* pequeño levantamiento al hover, sensación «táctil» */
 }
+
+/* ============================================
+   TARJETA DE PROYECTO
+   ============================================ */
+
+.project-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden; /* recorta la imagen a las esquinas redondeadas */
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.project-card:hover {
+  transform: translateY(
+    -4px
+  ); /* mismo lenguaje visual que el botón: se «levanta» al hover */
+  box-shadow: var(--shadow-md);
+}
+
+.project-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* mantiene proporción consistente aunque cambien las capturas */
+  object-fit: cover; /* recorta sin deformar si la imagen no encaja exacto */
+  background-color: var(
+    --color-bg-elevated
+  ); /* placeholder visible mientras carga o si falta la imagen */
+}
+
+.project-card__body {
+  padding: var(--space-md);
+}
+
+.project-card__title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.project-card__description {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+/* Etiquetas de tecnologías usadas en el proyecto */
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.project-card__tag {
+  font-family: var(
+    --font-mono
+  ); /* monoespaciada: refuerza el aire «técnico» de una etiqueta de tecnología */
+  font-size: var(--text-xs);
+  color: var(--color-accent-light);
+  background-color: rgba(255, 140, 66, 0.1); /* fondo ámbar muy tenue */
+  padding: 2px var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+
+.project-card__links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.project-card__links a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.project-card__links a:hover {
+  color: var(--color-accent);
+}
