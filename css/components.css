@@ -116,3 +116,37 @@
 .project-card__links a:hover {
   color: var(--color-accent);
 }
+
+/* ============================================
+   TECH BADGE
+   Píldora individual por tecnología/habilidad.
+   ============================================ */
+
+.tech-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full); /* forma de píldora */
+  background-color: var(--color-bg-secondary);
+
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.tech-badge:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.tech-badge__icon {
+  width: 18px;
+  height: 18px;
+}

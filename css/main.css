@@ -162,3 +162,13 @@
     grid-template-columns: repeat(2, 1fr); /* escritorio: 2 columnas */
   }
 }
+
+/* ============================================
+   REJILLA DE TECNOLOGÍAS
+   ============================================ */
+
+.tech__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
