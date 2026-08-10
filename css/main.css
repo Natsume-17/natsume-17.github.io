@@ -117,3 +117,32 @@
     font-size: var(--text-3xl);
   }
 }
+
+/* ============================================
+   SECCIONES GENERALES
+   Espaciado y estructura común a proyectos,
+   tecnologías y contacto.
+   ============================================ */
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-md); /* separación amplia entre secciones */
+  scroll-margin-top: var(
+    --header-height
+  ); /* evita que el header fijo tape el título al hacer scroll con anclas */
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.section__title span {
+  color: var(
+    --color-accent
+  ); /* para resaltar una palabra clave del título, ej: «Proyectos» en ámbar */
+}
