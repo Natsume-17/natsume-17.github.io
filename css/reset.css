@@ -1,0 +1,72 @@
+/* ============================================
+   RESET.CSS
+   Normaliza estilos por defecto del navegador
+   antes de aplicar los propios.
+   ============================================ */
+
+/* Reset de caja: todo mide lo estipulado, sin
+   sorpresas por padding/border sumándose al width */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Evita que imágenes/vídeos se desborden de su contenedor */
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Tipografía heredada consistente en inputs/botones
+   (por defecto usan la fuente del sistema, no la del body) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Quita estilo por defecto de listas cuando se usan
+   para navegación/layout, no para contenido semántico */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Los enlaces no heredan color de texto por defecto en
+   todos los navegadores; se fuerza consistencia */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Base del documento */
+html {
+  scroll-behavior: smooth; /* scroll suave al navegar con anclas (#proyectos, etc.) */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5; /* mejora legibilidad de párrafos largos */
+  -webkit-font-smoothing: antialiased; /* renderizado de fuente más nítido en Mac/Chrome */
+}
+
+/* Respeta la preferencia del usuario de reducir animaciones
+   (accesibilidad: mareos, vestibular) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
