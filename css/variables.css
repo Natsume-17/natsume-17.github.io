@@ -18,7 +18,7 @@
   /* --- Colores: texto ------------------------ */
   --color-text: #f0f0f0; /* texto principal, alto contraste sobre el fondo oscuro */
   --color-text-secondary: #9a9aa5; /* texto secundario: subtítulos, descripciones, metadatos */
-  --color-text-muted: #5c5c66; /* texto de baja jerarquía: fechas, etiquetas pequeñas */
+  --color-text-muted: #787886; /* texto de baja jerarquía: fechas, etiquetas pequeñas */
 
   /* --- Colores: utilidad --------------------- */
   --color-border: #26262f; /* bordes sutiles entre bloques */

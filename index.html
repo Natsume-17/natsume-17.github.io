@@ -34,7 +34,7 @@
     <canvas id="bg-canvas"></canvas>
 
     <header class="site-header">
-      <nav class="nav">
+      <nav class="nav" aria-label="Navegación principal">
         <span class="nav__logo">David A. Pérez Vera</span>
         <ul class="nav__links">
           <li><a href="#proyectos">Proyectos</a></li>
@@ -45,7 +45,7 @@
     </header>
 
     <main>
-      <section id="hero" class="hero">
+      <section id="hero" class="hero" aria-label="Sección de presentación">
         <h1 class="hero__title">David A. Pérez (Natsume)</h1>
         <p class="hero__subtitle">
           // Desarrollador Web Júnior · Técnico Júnior BBDD
@@ -58,12 +58,20 @@
         <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
       </section>
 
-      <section id="proyectos" class="section reveal">
+      <section
+        id="proyectos"
+        class="section reveal"
+        aria-label="Sección de proyectos"
+      >
         <h2 class="section__title">Mis <span>proyectos</span></h2>
         <div class="projects__grid"></div>
       </section>
 
-      <section id="tecnologias" class="section reveal">
+      <section
+        id="tecnologias"
+        class="section reveal"
+        aria-label="Sección de tecnologías"
+      >
         <h2 class="section__title">Tecnologías y <span>habilidades</span></h2>
         <div class="tech__categories"></div>
         <div class="soft-skills">
@@ -72,7 +80,11 @@
         </div>
       </section>
 
-      <section id="contacto" class="section reveal">
+      <section
+        id="contacto"
+        class="section reveal"
+        aria-label="Sección de contacto"
+      >
         <h2 class="section__title">Habl<span>emos</span></h2>
         <p class="contact__intro">
           Busco una oportunidad laboral. ¿Tienes una vacante en tu empresa?
@@ -101,7 +113,7 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" aria-label="Pie de página">
       <p>
         David A. Pérez Vera · Hecho con HTML, CSS, JavaScript y Three.js ·
         Desplegado en GitHub Pages

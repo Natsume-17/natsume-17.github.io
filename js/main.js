@@ -61,7 +61,7 @@ function renderTech() {
       .map(
         (item) => `
         <span class="tech-badge">
-          <svg class="tech-badge__icon" viewBox="${item.viewBox}">${item.icon}</svg>
+          <svg class="tech-badge__icon" viewBox="${item.viewBox}" aria-hidden="true">${item.icon}</svg>
           ${item.name}
         </span>
       `,
