@@ -35,7 +35,7 @@ function createProjectCard(project) {
     .join("");
 
   article.innerHTML = `
-    <img class="project-card__image" src="${project.image}" alt="Captura del proyecto ${project.title}">
+    <img class="project-card__image" src="${project.image}" alt="Captura del proyecto ${project.title}" loading="lazy" />
     <div class="project-card__body">
       <h3 class="project-card__title">${project.title}</h3>
       <p class="project-card__description">${project.description}</p>

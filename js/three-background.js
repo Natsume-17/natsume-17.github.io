@@ -7,6 +7,12 @@ let scene, camera, renderer, particles, lines;
 let mouseX = 0,
   mouseY = 0;
 
+// se comprueba una sola vez al iniciar: si cambia en pleno uso,
+// no merece la pena reiniciar la escena por un caso tan raro
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
 export function initBackground() {
   const canvas = document.getElementById("bg-canvas");
 
@@ -32,7 +38,11 @@ export function initBackground() {
   scene.add(lines);
 
   window.addEventListener("resize", onResize);
-  window.addEventListener("mousemove", onMouseMove);
+  // el parallax por ratón también es «movimiento» que puede
+  // resultar incómodo, así que se omite igual que la rotación
+  if (!prefersReducedMotion) {
+    window.addEventListener("mousemove", onMouseMove);
+  }
 
   animate();
 }
@@ -142,12 +152,14 @@ function onResize() {
 function animate() {
   requestAnimationFrame(animate);
 
-  particles.rotation.y += 0.0006;
-  lines.rotation.y += 0.0006; // misma rotación que las partículas, para que las líneas sigan encajando
+  if (!prefersReducedMotion) {
+    particles.rotation.y += 0.0006;
+    lines.rotation.y += 0.0006; // misma rotación que las partículas, para que las líneas sigan encajando
 
-  camera.position.x += (mouseX * 5 - camera.position.x) * 0.02;
-  camera.position.y += (-mouseY * 5 - camera.position.y) * 0.02;
-  camera.lookAt(scene.position);
+    camera.position.x += (mouseX * 5 - camera.position.x) * 0.02;
+    camera.position.y += (-mouseY * 5 - camera.position.y) * 0.02;
+    camera.lookAt(scene.position);
+  }
 
   renderer.render(scene, camera);
 }
