@@ -221,3 +221,31 @@
   height: 100%;
   z-index: -1; /* detrás de header y contenido */
 }
+
+/* ============================================
+   ANIMACIÓN DE ENTRADA
+   Estado inicial (oculto) y estado final
+   (visible) para elementos que aparecen al
+   hacer scroll.
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeta la preferencia de reducir movimiento definida
+   en reset.css: si el usuario la activa, aparece sin animar */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+  }
+}
