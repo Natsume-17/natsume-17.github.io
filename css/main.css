@@ -178,6 +178,48 @@
 }
 
 /* ============================================
+   GRUPOS DE TECNOLOGÍAS
+   ============================================ */
+
+.tech__category {
+  margin-bottom: var(--space-lg);
+}
+
+.tech__category-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em; /* separa las letras, look «etiqueta técnica» */
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* ============================================
+   SOFT SKILLS
+   Jerarquía visual distinta: sin borde, sin
+   fondo, más discreto que un badge técnico.
+   ============================================ */
+
+.soft-skills {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.soft-skills__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.soft-skills__item {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
    CONTACTO
    ============================================ */
 

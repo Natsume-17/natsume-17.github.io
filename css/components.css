@@ -147,8 +147,10 @@
 }
 
 .tech-badge__icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  fill: currentColor; /* hereda el color del texto del badge */
+  flex-shrink: 0; /* evita que el icono se deforme si el nombre es largo */
 }
 
 /* ==============================================================
