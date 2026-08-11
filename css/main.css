@@ -50,6 +50,10 @@
   transition: color var(--transition-fast); /* usa la variable de transición definida antes */
 }
 
+.nav__links a.is-active {
+  color: var(--color-accent); /* mismo color que el usado en :hover */
+}
+
 .nav__links a:hover {
   color: var(
     --color-accent

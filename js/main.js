@@ -1,9 +1,11 @@
 import { initBackground } from "./three-background.js";
 import { projects } from "./projects-data.js";
+import { initNavSpy } from "./nav-spy.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initBackground();
   renderProjects();
+  initNavSpy();
 });
 
 function renderProjects() {
