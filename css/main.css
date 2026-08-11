@@ -32,10 +32,14 @@
 }
 
 .nav__logo {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-bold);
-  font-size: var(--text-lg);
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo img {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated; /* mantiene el aspecto de píxel duro también al escalar en CSS, no solo en el SVG */
 }
 
 .nav__links {
