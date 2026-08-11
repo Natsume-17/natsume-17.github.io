@@ -204,3 +204,16 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
 }
+
+/* ============================================
+   CANVAS THREE.JS
+   ============================================ */
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* detrás de header y contenido */
+}
