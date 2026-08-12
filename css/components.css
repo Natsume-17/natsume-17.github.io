@@ -98,6 +98,7 @@
   background-color: rgba(255, 140, 66, 0.1); /* fondo ámbar muy tenue */
   padding: 2px var(--space-xs);
   border-radius: var(--radius-sm);
+  cursor: default; /* no es un enlace, solo información */
 }
 
 .project-card__links {
@@ -139,6 +140,8 @@
   transition:
     border-color var(--transition-fast),
     transform var(--transition-fast);
+
+  cursor: default; /* no es un enlace, solo información */
 }
 
 .tech-badge:hover {
