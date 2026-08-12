@@ -8,7 +8,7 @@ export const projects = [
   {
     title: "Tetris",
     description:
-      "Juego estilo Tetris construido con HTML5, CSS3, JavaScript y renderizado con Canvas API.",
+      "Recreación del clásico Tetris, con lógica de colisiones, rotación de piezas y sistema de puntuación implementados desde cero con HTML5, CSS3, JavaScript y Canvas API.",
     image: "assets/images/tetris-menu.png",
     tags: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
     githubUrl: "https://github.com/natsume-17/tetris-web/",

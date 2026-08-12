@@ -162,7 +162,7 @@
 
 .projects__grid {
   display: grid;
-  grid-template-columns: 1fr; /* dispositivo móvil: una columna */
+  grid-template-columns: repeat(1, 1fr); /* dispositivo móvil: una columna */
   gap: var(--space-lg);
 }
 
