@@ -32,6 +32,22 @@
   ); /* pequeño levantamiento al hover, sensación «táctil» */
 }
 
+.btn--sm {
+  padding: 4px var(--space-sm);
+  font-size: var(--text-xs);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 /* ============================================
    TARJETA DE PROYECTO
    ============================================ */
