@@ -229,3 +229,28 @@
 .icon-external {
   vertical-align: -2px; /* alinea el icono con la línea base del texto */
 }
+
+/* ==============================================================
+MEDIA QUERIES
+   Ajustes de diseño para distintos tamaños de pantalla.
+   ============================================================== */
+@media (max-width: 550px) {
+  .tech-badge,
+  .project-card__tag {
+    font-size: 0.7rem; /* un poco por debajo de --text-xs (0.75rem) */
+    padding: 3px 6px; /* ligeramente más compacto que el padding de escritorio */
+  }
+
+  .tech-badge__icon {
+    width: 14px; /* antes 16px, para mantener proporción con el texto más pequeño */
+    height: 14px;
+  }
+
+  .btn {
+    width: 100%; /* botones a pantalla completa en móvil */
+    justify-content: center; /* centra el contenido del botón */
+    font-size: var(
+      --text-sm
+    ); /* texto más pequeño para que quepa en el ancho del móvil */
+  }
+}
