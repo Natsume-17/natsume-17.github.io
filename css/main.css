@@ -37,8 +37,8 @@
 }
 
 .nav__logo img {
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   image-rendering: pixelated; /* mantiene el aspecto de píxel duro también al escalar en CSS, no solo en el SVG */
 }
 
@@ -63,6 +63,18 @@
   color: var(
     --color-accent
   ); /* al pasar el ratón, resalta con el acento ámbar */
+}
+
+.nav__links .btn--primary {
+  color: var(
+    --color-text
+  ); /* casi blanco, en vez del texto oscuro por defecto de .btn--primary */
+}
+
+.nav__links .btn--primary:hover {
+  color: var(
+    --color-bg
+  ); /* vuelve al texto oscuro solo en hover, cuando el fondo se aclara */
 }
 
 /* ============================================
@@ -110,21 +122,14 @@
   font-family: var(--font-body);
   font-size: var(--text-base);
   color: var(--color-text-secondary);
-  max-width: 600px; /* evita líneas de texto demasiado anchas y difíciles de leer */
+  max-width: 860px; /* evita líneas de texto demasiado anchas y difíciles de leer */
   margin-bottom: var(--space-lg);
 }
 
 .hero__cta {
-  /* clase contenedora opcional si luego añades más de un botón junto al CTA */
+  /* clase contenedora opcional si se añade más de un botón junto al CTA */
   display: flex;
   gap: var(--space-sm);
-}
-
-/* Escritorio: título más grande, ya hay espacio de sobra */
-@media (min-width: 768px) {
-  .hero__title {
-    font-size: var(--text-3xl);
-  }
 }
 
 /* ============================================
@@ -166,12 +171,6 @@
   gap: var(--space-lg);
 }
 
-@media (min-width: 768px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr); /* escritorio: 2 columnas */
-  }
-}
-
 /* ============================================
    REJILLA DE TECNOLOGÍAS
    ============================================ */
@@ -192,7 +191,7 @@
 
 .tech__category-title {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.08em; /* separa las letras, look «etiqueta técnica» */
   color: var(--color-text-muted);
@@ -237,7 +236,7 @@
 .contact__intro {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-lg);
-  max-width: 500px;
+  max-width: 860px;
 }
 
 /* ============================================
@@ -308,4 +307,81 @@
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   MEDIA QUERIES
+   Diseño adaptativo para dispositivos móviles.
+   ============================================ */
+
+/* Escritorio: título más grande, ya hay espacio de sobra */
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: var(--text-3xl);
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr); /* escritorio: 2 columnas */
+  }
+}
+
+@media (max-width: 550px) {
+  .nav {
+    justify-content: space-around; /* deja espacio a los lados del logo y el botón GitHub */
+  }
+
+  .nav__links a:not(.btn) {
+    display: none; /* oculta Proyectos/Tecnologías/Contacto, deja el botón GitHub */
+  }
+
+  .hero {
+    align-items: center; /* centra el contenido del hero en móvil, no alineado a la izquierda */
+  }
+
+  .hero__title,
+  .hero__subtitle,
+  .hero__description {
+    text-align: center;
+  }
+
+  .section {
+    padding: var(--space-xl) var(--space-md); /* menos espaciado entre secciones para dispositivos móviles */
+  }
+
+  .section__title {
+    text-align: center;
+  }
+
+  .hero__cta,
+  .contact__links {
+    flex-direction: column; /* uno por línea en vez de en fila */
+    width: 100%;
+  }
+
+  .tech__category-title,
+  .tech__grid,
+  .soft-skills__items,
+  .contact__intro {
+    justify-content: center; /* para los que ya son flex, como .tech__grid */
+    text-align: center; /* para los títulos, que son texto normal */
+  }
+
+  .tech-badge,
+  .project-card__tag {
+    font-size: 0.7rem; /* un poco por debajo de --text-xs (0.75rem) */
+    padding: 3px 6px; /* ligeramente más compacto que el padding de escritorio */
+  }
+
+  .tech-badge__icon {
+    width: 14px; /* antes 16px, para mantener proporción con el texto más pequeño */
+    height: 14px;
+  }
+
+  .btn {
+    width: 100%; /* botones a pantalla completa en móvil */
+    justify-content: center; /* centra el contenido del botón */
+    font-size: var(
+      --text-sm
+    ); /* texto más pequeño para que quepa en el ancho del móvil */
+  }
 }

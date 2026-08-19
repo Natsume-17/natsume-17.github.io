@@ -5,8 +5,10 @@
    ============================================ */
 
 .btn {
-  display: inline-block;
-  padding: var(--space-xs) var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-weight: var(--weight-medium);
@@ -80,6 +82,8 @@
 
 .project-card__body {
   padding: var(--space-md);
+  text-align: center; /* centra el contenido de la tarjeta, más agradable visualmente */
+  align-items: center; /* centra los elementos hijos en el eje transversal */
 }
 
 .project-card__title {
@@ -101,7 +105,8 @@
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  justify-content: center;
+  gap: var(--space-xs); /* reemplaza el margin individual de cada tag */
   margin-bottom: var(--space-md);
 }
 
@@ -112,14 +117,16 @@
   font-size: var(--text-xs);
   color: var(--color-accent-light);
   background-color: rgba(255, 140, 66, 0.1); /* fondo ámbar muy tenue */
-  padding: 2px var(--space-xs);
+  padding: 4px var(--space-xs);
   border-radius: var(--radius-sm);
   cursor: default; /* no es un enlace, solo información */
 }
 
 .project-card__links {
   display: flex;
+  justify-content: center;
   gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .project-card__links a {
@@ -208,6 +215,17 @@
 }
 
 .contact-link__icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0; /* evita que el icono se deforme si el texto es largo */
+}
+
+/* ==============================================================
+   ICONO PARA ENLACES EXTERNOS
+   Pequeño icono de flecha diagonal que indica que el enlace es
+   saliente a otra web.
+   ============================================================== */
+
+.icon-external {
+  vertical-align: -2px; /* alinea el icono con la línea base del texto */
 }
