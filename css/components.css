@@ -41,13 +41,17 @@
 
 .btn--secondary {
   background-color: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  color: var(
+    --color-accent-dim
+  ); /* acento apagado, para no competir con el botón principal */
+  border: 1px solid var(--color-accent-dim); /* borde ámbar apagado, para no competir con el botón principal */
 }
 
 .btn--secondary:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-accent-light);
+  color: var(
+    --color-text
+  ); /* texto casi blanco, para resaltar sobre el fondo oscuro */
 }
 
 /* ============================================
@@ -190,7 +194,7 @@
   align-items: center;
   gap: var(--space-xs);
 
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
 
@@ -247,7 +251,6 @@ MEDIA QUERIES
   }
 
   .btn {
-    width: 100%; /* botones a pantalla completa en móvil */
     justify-content: center; /* centra el contenido del botón */
     font-size: var(
       --text-sm

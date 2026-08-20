@@ -65,16 +65,9 @@
   ); /* al pasar el ratón, resalta con el acento ámbar */
 }
 
-.nav__links .btn--primary {
-  color: var(
-    --color-text
-  ); /* casi blanco, en vez del texto oscuro por defecto de .btn--primary */
-}
-
+.nav__links .btn--primary,
 .nav__links .btn--primary:hover {
-  color: var(
-    --color-bg
-  ); /* vuelve al texto oscuro solo en hover, cuando el fondo se aclara */
+  color: var(--color-bg);
 }
 
 /* ============================================
@@ -233,6 +226,10 @@
   gap: var(--space-md);
 }
 
+.contact__links--secondary {
+  margin-top: var(--space-md);
+}
+
 .contact__intro {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-lg);
@@ -352,10 +349,9 @@
     text-align: center;
   }
 
-  .hero__cta,
-  .contact__links {
+  .hero__cta {
     flex-direction: column; /* uno por línea en vez de en fila */
-    width: 100%;
+    align-items: center; /* centra los botones de contacto en móvil */
   }
 
   .tech__category-title,
@@ -364,5 +360,11 @@
   .contact__intro {
     justify-content: center; /* para los que ya son flex, como .tech__grid */
     text-align: center; /* para los títulos, que son texto normal */
+  }
+
+  .contact__links,
+  .contact__links--secondary {
+    flex-direction: column; /* uno por línea en vez de en fila */
+    align-items: center; /* centra los botones de contacto en móvil */
   }
 }
