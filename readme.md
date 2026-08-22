@@ -6,33 +6,36 @@ Portafolio personal — desarrollador web júnior. Landing page, presentación d
 
 ## Stack
 
+- **[Astro](https://astro.build)** — generador de sitios estáticos
 - **HTML5** semántico
 - **CSS3** — variables nativas (custom properties), grid y flexbox, diseño adaptable
 - **JavaScript (ES6+)** — módulos nativos, sin frameworks ni bundler
 - **Three.js** — fondo animado de partículas con efecto parallax
 
-Sin build tool: JS plano con `<script type="module">`, Three.js cargado vía import map desde CDN.
-
 ## Estructura del proyecto
 
 ```
-├── index.html
-├── css/
-│   ├── reset.css        # normaliza estilos del navegador
-│   ├── variables.css     # paleta de colores, tipografía, espaciados
-│   ├── main.css           # layout general y estructura de la página
-│   └── components.css    # piezas reutilizables (botones, tarjetas, badges)
-├── js/
-│   ├── main.js               # punto de entrada
-│   ├── three-background.js    # escena Three.js (partículas + parallax)
-│   ├── projects-data.js      # datos de proyectos (array editable)
-│   ├── tech-data.js           # tecnologías por categoría + habilidades blandas
-│   ├── nav-spy.js             # resalta la sección activa en el nav al hacer scroll
-│   └── reveal.js               # animaciones de entrada (fade-in + slide-up)
-├── assets/
-│   ├── images/
-│   └── icons/
-└── robots.txt
+├── src/
+│   └── pages/
+│       └── index.astro   # página principal
+├── public/
+│   ├── css/
+│   │   ├── reset.css        # normaliza estilos del navegador
+│   │   ├── variables.css     # paleta de colores, tipografía, espaciados
+│   │   ├── main.css           # layout general y estructura de la página
+│   │   └── components.css    # piezas reutilizables (botones, tarjetas, badges)
+│   ├── js/
+│   │   ├── main.js               # punto de entrada
+│   │   ├── three-background.js    # escena Three.js (partículas + parallax)
+│   │   ├── projects-data.js      # datos de proyectos (array editable)
+│   │   ├── tech-data.js           # tecnologías por categoría + habilidades blandas
+│   │   ├── nav-spy.js             # resalta la sección activa en el nav al hacer scroll
+│   │   └── reveal.js               # animaciones de entrada (fade-in + slide-up)
+│   ├── assets/
+│   │   ├── images/
+│   │   └── icons/
+│   └── robots.txt
+└── astro.config.mjs
 ```
 
 ## Características
@@ -61,11 +64,16 @@ Edita `js/projects-data.js` y añade un objeto al array `projects`:
 }
 ```
 
-La tarjeta se genera automáticamente, sin editar `index.html`.
+La tarjeta se genera automáticamente, sin editar `index.astro`.
 
 ## Desarrollo local
 
-No requiere instalación de dependencias. Basta con abrir `index.html` con Live Server (extensión de VS Code) o cualquier servidor estático local.
+Requiere Node.js. Instala dependencias y arranca el servidor de desarrollo:
+
+```bash
+npm install
+npm run dev
+```
 
 ## Licencia
 
