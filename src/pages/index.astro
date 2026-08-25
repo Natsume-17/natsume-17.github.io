@@ -1,5 +1,8 @@
 ---
 import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const projects = await getCollection('projects');
 ---
 
 <!doctype html>
@@ -107,7 +110,33 @@ import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
 
       <section id="proyectos" class="section reveal" aria-label="Sección de proyectos">
         <h2 class="section__title">Mis <span>proyectos</span></h2>
-        <div class="projects__grid"></div>
+        <div class="projects__grid">
+        {projects.map((project: CollectionEntry<'projects'>) => (
+          <article class="project-card">
+            <img
+              class="project-card__image"
+              src={project.data.image}
+              alt={`Captura del proyecto ${project.data.title}`}
+              loading="lazy"
+            />
+            <div class="project-card__body">
+              <h3 class="project-card__title">{project.data.title}</h3>
+              <p class="project-card__description">{project.data.description}</p>
+              <div class="project-card__tags">
+                {project.data.tags.map((tag: string) => (
+                  <span class="project-card__tag">{tag}</span>
+                ))}
+              </div>
+              <div class="project-card__links">
+                <a href={project.data.githubUrl} target="_blank" rel="noopener">GitHub →</a>
+                {project.data.demoUrl && (
+                  <a href={project.data.demoUrl} target="_blank" rel="noopener">Demo →</a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+        </div>
       </section>
 
       <section id="tecnologias" class="section reveal" aria-label="Sección de tecnologías">
