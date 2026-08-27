@@ -1,8 +1,15 @@
 ---
 import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import softSkills from '../data/soft-skills.json';
 
 const projects = await getCollection('projects');
+
+const categoryOrder = ["Frontend", "Backend / Programación", "Bases de datos", "Control de versiones"];
+const techCategories = (await getCollection('techCategories')).sort(
+  (a: CollectionEntry<'techCategories'>, b: CollectionEntry<'techCategories'>) =>
+    categoryOrder.indexOf(a.data.title) - categoryOrder.indexOf(b.data.title)
+);
 ---
 
 <!doctype html>
@@ -141,10 +148,33 @@ const projects = await getCollection('projects');
 
       <section id="tecnologias" class="section reveal" aria-label="Sección de tecnologías">
         <h2 class="section__title">Tecnologías y <span>habilidades</span></h2>
-        <div class="tech__categories"></div>
+        <div class="tech__categories">
+          {techCategories.map((category: CollectionEntry<'techCategories'>) => (
+            <div class="tech__category">
+              <h3 class="tech__category-title">{category.data.title}</h3>
+              <div class="tech__grid">
+                {category.data.items.map((item: { name: string; viewBox: string; icon: string }) => (
+                  <span class="tech-badge">
+                    <svg
+                      class="tech-badge__icon"
+                      viewBox={item.viewBox}
+                      aria-hidden="true"
+                      set:html={item.icon}
+                    />
+                    {item.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
         <div class="soft-skills">
           <h3 class="tech__category-title">Habilidades blandas</h3>
-          <div class="soft-skills__items"></div>
+          <div class="soft-skills__items">
+            {softSkills.map((skill: string) => (
+              <span class="soft-skills__item">{skill}</span>
+            ))}
+          </div>
         </div>
       </section>
 

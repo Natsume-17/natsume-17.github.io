@@ -13,6 +13,21 @@ const projectsCollection = defineCollection({
   }),
 });
 
+const techCategoriesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/tech-categories" }),
+  schema: z.object({
+    title: z.string(),
+    items: z.array(
+      z.object({
+        name: z.string(),
+        viewBox: z.string(),
+        icon: z.string(),
+      }),
+    ),
+  }),
+});
+
 export const collections = {
   projects: projectsCollection,
+  techCategories: techCategoriesCollection,
 };
