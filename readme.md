@@ -6,7 +6,8 @@ Portafolio personal — desarrollador web júnior. Landing page, presentación d
 
 ## Stack
 
-- **[Astro](https://astro.build)** — generador de sitios estáticos
+- **[Astro](https://astro.build)** — generador de sitios estáticos, con Content Collections para gestionar proyectos y tecnologías
+- **TypeScript** — esquemas de validación (Zod) para el contenido
 - **HTML5** semántico
 - **CSS3** — variables nativas (custom properties), grid y flexbox, diseño adaptable
 - **JavaScript (ES6+)** — módulos nativos, sin frameworks ni bundler
@@ -16,25 +17,31 @@ Portafolio personal — desarrollador web júnior. Landing page, presentación d
 
 ```
 ├── src/
-│   └── pages/
-│       └── index.astro   # página principal
+│ ├── content.config.ts # esquemas (Zod) de las Content Collections
+│ ├── content/
+│ │ ├── projects/ # un .json por proyecto
+│ │ └── tech-categories/ # un .json por categoría de tecnologías
+│ ├── data/
+│ │ └── soft-skills.json # lista de habilidades blandas
+│ ├── components/
+│ │ └── ExternalLinkIcon.astro
+│ └── pages/
+│ └── index.astro # página principal
 ├── public/
-│   ├── css/
-│   │   ├── reset.css        # normaliza estilos del navegador
-│   │   ├── variables.css     # paleta de colores, tipografía, espaciados
-│   │   ├── main.css           # layout general y estructura de la página
-│   │   └── components.css    # piezas reutilizables (botones, tarjetas, badges)
-│   ├── js/
-│   │   ├── main.js               # punto de entrada
-│   │   ├── three-background.js    # escena Three.js (partículas + parallax)
-│   │   ├── projects-data.js      # datos de proyectos (array editable)
-│   │   ├── tech-data.js           # tecnologías por categoría + habilidades blandas
-│   │   ├── nav-spy.js             # resalta la sección activa en el nav al hacer scroll
-│   │   └── reveal.js               # animaciones de entrada (fade-in + slide-up)
-│   ├── assets/
-│   │   ├── images/
-│   │   └── icons/
-│   └── robots.txt
+│ ├── css/
+│ │ ├── reset.css # normaliza estilos del navegador
+│ │ ├── variables.css # paleta de colores, tipografía, espaciados
+│ │ ├── main.css # layout general y estructura de la página
+│ │ └── components.css # piezas reutilizables (botones, tarjetas, badges)
+│ ├── js/
+│ │ ├── main.js # punto de entrada
+│ │ ├── three-background.js # escena Three.js (partículas + parallax)
+│ │ ├── nav-spy.js # resalta la sección activa en el nav al hacer scroll
+│ │ └── reveal.js # animaciones de entrada (fade-in + slide-up)
+│ ├── assets/
+│ │ ├── images/
+│ │ └── icons/
+│ └── robots.txt
 └── astro.config.mjs
 ```
 
@@ -42,7 +49,7 @@ Portafolio personal — desarrollador web júnior. Landing page, presentación d
 
 - Diseño oscuro con acentos ámbar, estética minimalista-futurista.
 - Fondo 3D de partículas conectadas (estilo constelación) que reacciona al ratón.
-- Proyectos y tecnologías renderizados dinámicamente desde archivos de datos (`projects-data.js`, `tech-data.js`) — añadir contenido nuevo no requiere tocar el HTML.
+- Proyectos y tecnologías gestionados con **Content Collections de Astro**: añadir contenido nuevo es crear un archivo `.json`, sin tocar `index.astro`.
 - Scroll spy: resalta en el nav la sección visible.
 - Animaciones de entrada al hacer scroll, con `IntersectionObserver`.
 - Accesible: navegación por teclado con foco visible, contraste WCAG AA, `prefers-reduced-motion` respetado también en la animación 3D.
@@ -51,20 +58,39 @@ Portafolio personal — desarrollador web júnior. Landing page, presentación d
 
 ## Añadir un proyecto nuevo
 
-Edita `js/projects-data.js` y añade un objeto al array `projects`:
+Crea un archivo `.json` en `src/content/projects/` (el nombre del archivo no importa, solo su contenido):
 
-```javascript
+```json
 {
-  title: 'Nombre del proyecto',
-  description: 'Descripción breve.',
-  image: 'assets/images/nombre-preview.png',
-  tags: ['Tecnología1', 'Tecnología2'],
-  githubUrl: 'https://github.com/usuario/repo',
-  demoUrl: null, // o la URL de la demo si existe
+  "title": "Nombre del proyecto",
+  "description": "Descripción breve.",
+  "image": "/assets/images/nombre-preview.png",
+  "tags": ["Tecnología1", "Tecnología2"],
+  "githubUrl": "https://github.com/usuario/repo",
+  "demoUrl": "https://usuario.github.io/repo"
 }
 ```
 
-La tarjeta se genera automáticamente, sin editar `index.astro`.
+`demoUrl` es opcional — si el proyecto no tiene demo online, simplemente omite el campo. La tarjeta se genera automáticamente en la sección de proyectos.
+
+## Añadir una tecnología o categoría
+
+Cada categoría es un archivo `.json` en `src/content/tech-categories/`, con esta forma:
+
+```json
+{
+  "title": "Nombre de la categoría",
+  "items": [
+    {
+      "name": "Nombre",
+      "viewBox": "0 0 24 24",
+      "icon": "<path d=\"...\"></path>"
+    }
+  ]
+}
+```
+
+El `icon` es el contenido interno de un `<svg>` (el `<path>`), tomado de [Simple Icons](https://simpleicons.org/). El orden de aparición de las categorías se controla manualmente en `index.astro` (`categoryOrder`), no por el nombre de archivo.
 
 ## Desarrollo local
 
