@@ -3,8 +3,12 @@ import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import softSkills from '../data/soft-skills.json';
 
+// Proyectos del portafolio (Content Collection, src/content/projects/*.json)
 const projects = await getCollection('projects');
 
+// Categorías de tecnologías (Content Collection, src/content/tech-categories/*.json).
+// Se ordenan manualmente porque el orden de lectura de Astro es alfabético
+// por nombre de archivo, y se prefiere mostrar Frontend primero.
 const categoryOrder = ["Frontend", "Backend / Programación", "Bases de datos", "Control de versiones"];
 const techCategories = (await getCollection('techCategories')).sort(
   (a: CollectionEntry<'techCategories'>, b: CollectionEntry<'techCategories'>) =>
@@ -18,6 +22,8 @@ const techCategories = (await getCollection('techCategories')).sort(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>David A. Pérez Vera — Desarrollador web júnior</title>
+
+    <!-- Metadatos para compartir en redes (Open Graph / Twitter Cards) -->
     <meta
       name="description"
       content="Portafolio de David A. Pérez Vera, desarrollador web júnior con nociones en BBDD."
@@ -64,6 +70,7 @@ const techCategories = (await getCollection('techCategories')).sort(
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/components.css" />
 
+     <!-- Importmap para cargar Three.js desde CDN como módulo ES -->
     <script type="importmap">
       {
         "imports": {
@@ -73,6 +80,7 @@ const techCategories = (await getCollection('techCategories')).sort(
     </script>
   </head>
   <body>
+    <!-- Fondo animado gestionado por three-background.js -->
     <canvas id="bg-canvas"></canvas>
 
     <header class="site-header">
@@ -115,6 +123,7 @@ const techCategories = (await getCollection('techCategories')).sort(
         </div>
       </section>
 
+      <!-- Tarjetas de proyecto generadas desde la Content Collection «projects» -->
       <section id="proyectos" class="section reveal" aria-label="Sección de proyectos">
         <h2 class="section__title">Mis <span>proyectos</span></h2>
         <div class="projects__grid">
@@ -146,6 +155,8 @@ const techCategories = (await getCollection('techCategories')).sort(
         </div>
       </section>
 
+      <!-- Categorías de tecnologías y habilidades blandas, generadas desde
+           la Content Collection «techCategories» y soft-skills.json -->
       <section id="tecnologias" class="section reveal" aria-label="Sección de tecnologías">
         <h2 class="section__title">Tecnologías y <span>habilidades</span></h2>
         <div class="tech__categories">
@@ -155,6 +166,7 @@ const techCategories = (await getCollection('techCategories')).sort(
               <div class="tech__grid">
                 {category.data.items.map((item: { name: string; viewBox: string; icon: string }) => (
                   <span class="tech-badge">
+                    {/* set:html inyecta el <path> del icono tal cual (viene de Simple Icons) */}
                     <svg
                       class="tech-badge__icon"
                       viewBox={item.viewBox}
@@ -214,6 +226,7 @@ const techCategories = (await getCollection('techCategories')).sort(
           </a>
         </div>
 
+        <!-- Enlaces de contacto secundarios (redes menos prioritarias) -->
         <div class="contact__links contact__links--secondary">
           <a class="contact-link" href="https://twitter.com/dabidenatsume" target="_blank" rel="noopener noreferrer">
             <svg
