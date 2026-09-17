@@ -70,6 +70,11 @@
   color: var(--color-bg);
 }
 
+/* Oculto por defecto: solo existe para el nav móvil */
+.nav .nav__contact-btn {
+  display: none;
+}
+
 /* ============================================
    HERO
    Sección de presentación inicial, ocupa el
@@ -324,11 +329,31 @@
 
 @media (max-width: 550px) {
   .nav {
-    justify-content: space-around; /* deja espacio a los lados del logo y el botón GitHub */
+    justify-content: flex-start; /* alinea el logo a la izquierda, no centrado */
+    padding-inline: var(--space-sm); /* menos padding lateral en móvil */
+  }
+
+  .nav__logo {
+    justify-self: center;
+  }
+
+  .nav__links {
+    display: flex;
+    margin-left: auto; /* empuja los enlaces a la derecha */
+    gap: var(--space-sm); /* menos espacio entre enlaces en móvil */
+  }
+
+  .nav__logo,
+  .nav__logo img {
+    flex-shrink: 0; /* evita que el logo se encoja al faltar espacio */
   }
 
   .nav__links a:not(.btn) {
-    display: none; /* oculta Proyectos/Tecnologías/Contacto, deja el botón GitHub */
+    display: none; /* oculta Proyectos/Tecnologías/Contacto, deja el botón GitHub y el botón de contacto */
+  }
+
+  .nav .nav__contact-btn {
+    display: inline-flex; /* muestra el botón de contacto en móvil */
   }
 
   .hero {
@@ -366,5 +391,28 @@
   .contact__links--secondary {
     flex-direction: column; /* uno por línea en vez de en fila */
     align-items: center; /* centra los botones de contacto en móvil */
+  }
+}
+
+@media (max-width: 350px) {
+  .nav {
+    padding-inline: var(
+      --space-xs
+    ); /* aún menos padding lateral en pantallas muy pequeñas */
+  }
+  .nav__logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav__links {
+    gap: -var(
+      --space-xs
+    ); /* menos espacio entre enlaces en pantallas muy pequeñas */
+  }
+
+  .nav__links .btn {
+    padding-inline: 8px;
+    font-size: 0.8rem;
   }
 }
