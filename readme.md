@@ -90,7 +90,7 @@ Cada categoría es un archivo `.json` en `src/content/tech-categories/`, con est
 }
 ```
 
-El `icon` es el contenido interno de un `<svg>` (el `<path>`), tomado de [Simple Icons](https://simpleicons.org/). El orden de aparición de las categorías se controla manualmente en `index.astro` (`categoryOrder`), no por el nombre de archivo.
+El `icon` es el contenido interno de un `<svg>` (el `<path>`), tomado preferentemente de [Simple Icons](https://simpleicons.org/); cuando una tecnología no tiene ahí un icono de marca adecuado, se usa el de otra librería de iconos equivalente. El `viewBox` no siempre es `0 0 24 24` (por ejemplo Java y LinkedIn usan `0 0 128 128`) — cópialo siempre tal cual lo da la fuente original, no lo asumas.
 
 ## Desarrollo local
 
