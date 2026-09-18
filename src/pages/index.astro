@@ -9,7 +9,7 @@ const projects = await getCollection('projects');
 // Categorías de tecnologías (Content Collection, src/content/tech-categories/*.json).
 // Se ordenan manualmente porque el orden de lectura de Astro es alfabético
 // por nombre de archivo, y se prefiere mostrar Frontend primero.
-const categoryOrder = ["Frontend", "Backend / Programación", "Bases de datos", "Control de versiones"];
+const categoryOrder = ["Frontend", "Backend / Programación", "Bases de datos", "Herramientas", "CMS"];
 const techCategories = (await getCollection('techCategories')).sort(
   (a: CollectionEntry<'techCategories'>, b: CollectionEntry<'techCategories'>) =>
     categoryOrder.indexOf(a.data.title) - categoryOrder.indexOf(b.data.title)
